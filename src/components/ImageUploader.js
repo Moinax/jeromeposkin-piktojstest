@@ -12,7 +12,7 @@ export default ({ onSubmit }) => {
         name="upload"
         onChange={(e) => setFile(e.target.files[0])}
       />
-      <button id="submit" className="btn btn-default" onClick={() => onSubmit(file)}>
+      <button id="submit" className="btn btn-default" onClick={() => file && onSubmit(file)}>
         upload
       </button>
       {/*Upload Form here*/}
