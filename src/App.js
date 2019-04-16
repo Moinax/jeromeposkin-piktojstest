@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./App.css";
 
+import ImageUploader from "./components/ImageUploader";
 import ImageList from "./components/ImageList";
 
 async function fetchImages() {
@@ -24,25 +25,24 @@ class App extends Component {
       this.setState({ images });
     });
   }
+  uploadFile = async file => {
+    try {
+      const data = new FormData();
+      data.append("upload", file);
+      const response = await axios.post("/uploads", data);
+      this.setState({ images: [...this.state.images, response.data.file] });
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
+  };
   render() {
     const { images } = this.state;
     return (
       <React.Fragment>
         {/*side pane*/}
         <div className="sidepane col-sm-2 col-md-2 col-lg-2">
-          <div className="form">
-            <h3>Form</h3>
-            <input
-              type="file"
-              className="form-control"
-              placeholder="Upload Your Images"
-              name="upload"
-            />
-            <button id="submit" className="btn btn-default">
-              upload
-            </button>
-            {/*Upload Form here*/}
-          </div>
+          <ImageUploader onSubmit={this.uploadFile} />
           <hr />
           <div className="assets">
             <h3>Assets</h3>
