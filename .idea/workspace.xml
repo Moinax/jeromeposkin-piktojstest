@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72cc5406-14da-42ed-94c6-b5741a194a3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ImageObject.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TextObject.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ImageList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ImageList.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
+            <state relative-caret-position="366">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -49,10 +43,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ImageObject.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
+              <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -86,6 +89,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>console</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -93,7 +101,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/ImageUploader.js" />
@@ -101,6 +108,7 @@
         <option value="$PROJECT_DIR$/src/components/ImageList.js" />
         <option value="$PROJECT_DIR$/src/components/ImageObject.js" />
         <option value="$PROJECT_DIR$/src/components/TextObject.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
@@ -204,7 +212,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555413498649</updated>
-      <workItem from="1555413499838" duration="16633000" />
+      <workItem from="1555413499838" duration="20466000" />
     </task>
     <task id="LOCAL-00001" summary="Add prettier to get better code formatting">
       <created>1555417207656</created>
@@ -248,11 +256,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555429477823</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Handle canvas objects&#10;&#10;Add text and images into canvas&#10;Use react-draggable to move objects in the canvas&#10;Store the objects and positions in the state&#10;Generate shortid to get unique id per item">
+      <created>1555441519902</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555441519902</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add bounds to the canvas and handle delete key to remove selected item">
+      <created>1555444820595</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1555444820595</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16633000" />
+    <option name="totallyTimeSpent" value="20466000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="78" y="28" width="1233" height="1302" extended-state="0" />
@@ -263,12 +285,12 @@
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49872774" visible="true" weight="0.24958678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="1" weight="0.32992327" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="1" visible="true" weight="0.32992327" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="6" visible="true" weight="0.32992327" />
+      <window_info anchor="bottom" id="Terminal" order="6" weight="0.32992327" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.32992327" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
@@ -310,7 +332,9 @@
     <MESSAGE value="Converting html to React and images list to ImageList component" />
     <MESSAGE value="Add Axios library to make requests to the server and populate the images list&#10;&#10;Add a proxy in dev mode to avoid CORS problem during development" />
     <MESSAGE value="Convert image uploader to ImageUploader component&#10; &#10;Handle the post to the server&#10;Update the state with the new file when the server responds" />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert image uploader to ImageUploader component&#10; &#10;Handle the post to the server&#10;Update the state with the new file when the server responds" />
+    <MESSAGE value="Handle canvas objects&#10;&#10;Add text and images into canvas&#10;Use react-draggable to move objects in the canvas&#10;Store the objects and positions in the state&#10;Generate shortid to get unique id per item" />
+    <MESSAGE value="Add bounds to the canvas and handle delete key to remove selected item" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add bounds to the canvas and handle delete key to remove selected item" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md">
@@ -336,22 +360,8 @@
     <entry file="file://$PROJECT_DIR$/public/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/main.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -397,13 +407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ImageObject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="63" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/TextObject.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -411,10 +414,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ImageObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="64" selection-end-line="2" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="366">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

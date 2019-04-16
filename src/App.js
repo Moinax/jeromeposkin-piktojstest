@@ -20,10 +20,14 @@ async function fetchImages() {
   }
   return images;
 }
+
+const canvasStorage = window.localStorage.getItem('canvas');
+const initialObjects = canvasStorage ? JSON.parse(canvasStorage) : {};
+
 class App extends Component {
   state = {
     images: [],
-    objects: {},
+    objects: initialObjects,
     selectedKey: null
   };
   componentDidMount() {
@@ -31,10 +35,14 @@ class App extends Component {
       this.setState({ images });
     });
     document.addEventListener("keydown", this.onKeyDown);
+    this.saveInterval = setInterval(() => {
+      window.localStorage.setItem("canvas", JSON.stringify(this.state.objects));
+    }, 10 * 1000);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.onKeyDown);
+    clearInterval(this.saveInterval);
   }
 
   uploadFile = async file => {
