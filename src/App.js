@@ -1,10 +1,31 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 import "./App.css";
 
 import ImageList from "./components/ImageList";
 
+async function fetchImages() {
+  let images = [];
+  try {
+    const response = await axios.get("/images");
+    images = response.data;
+  } catch (e) {
+    console.error(e);
+  }
+  return images;
+}
 class App extends Component {
+  state = {
+    images: []
+  };
+  componentDidMount() {
+    fetchImages().then(images => {
+      this.setState({ images });
+    });
+  }
   render() {
+    const { images } = this.state;
     return (
       <React.Fragment>
         {/*side pane*/}
@@ -31,7 +52,7 @@ class App extends Component {
                 Add Text
               </button>
             </div>
-            <ImageList />
+            <ImageList images={images} />
           </div>
         </div>
         {/*canvas*/}

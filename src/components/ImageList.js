@@ -8,7 +8,9 @@ export default ({ images = [] }) => {
       <ul className="list-unstyled">
         {/*List of images here*/}
         {images.map(img => (
-          <ImageItem img={img} />
+          <li key={img}>
+            <ImageItem img={img} />
+          </li>
         ))}
       </ul>
     </div>
