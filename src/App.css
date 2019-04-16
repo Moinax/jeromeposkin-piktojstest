@@ -1,5 +1,12 @@
 #root {
   height: 100%;
-
 }
 
+.item {
+  cursor: move;
+  width: auto;
+}
+
+.selected {
+  border: 1px solid blue;
+}

@@ -23,17 +23,20 @@ async function fetchImages() {
 class App extends Component {
   state = {
     images: [],
-    objects: {}
+    objects: {},
+    selectedKey: null
   };
-  constructor(props) {
-    super(props);
-    this.canvas = React.createRef();
-  }
   componentDidMount() {
     fetchImages().then(images => {
       this.setState({ images });
     });
+    document.addEventListener("keydown", this.onKeyDown);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  }
+
   uploadFile = async file => {
     try {
       const data = new FormData();
@@ -60,6 +63,16 @@ class App extends Component {
     };
     this.setState({ objects: nextObjects });
   };
+  removeObject = key => {
+    const nextObjects = { ...this.state.objects };
+    delete nextObjects[key];
+    this.setState({ selectedKey: null, objects: nextObjects });
+  };
+  onKeyDown = event => {
+    if (event.code === "Delete") {
+      this.removeObject(this.state.selectedKey);
+    }
+  };
   addTextObject = e => {
     e.preventDefault();
     this.addObjectItem({ type: "text", value: "This is a text", x: 0, y: 0 });
@@ -67,9 +80,11 @@ class App extends Component {
   addImageObject = src => {
     this.addObjectItem({ type: "image", value: src, x: 0, y: 0 });
   };
+  selectObject = key => {
+    this.setState({ selectedKey: key });
+  };
   render() {
-    const { images, objects } = this.state;
-    console.log(objects);
+    const { images, objects, selectedKey } = this.state;
     return (
       <React.Fragment>
         {/*side pane*/}
@@ -93,18 +108,23 @@ class App extends Component {
         </div>
         {/*canvas*/}
         <div className="canvas col-sm-8 col-md-8 col-lg-8">
-          <div className="block" ref={this.canvas}>
+          <div className="block">
             {/*Add images and texts to here*/}
             {Object.values(objects).map(item => (
               <Draggable
                 key={item.key}
                 defaultPosition={{ x: item.x, y: item.y }}
-                offsetParent={this.canvas.current}
+                bounds="parent"
                 onStop={(e, data) =>
                   this.updateObjectPosition(item.key, data.x, data.y)
                 }
+                onMouseDown={() => this.selectObject(item.key)}
               >
-                <div>
+                <div
+                  className={`item${
+                    selectedKey === item.key ? " selected" : ""
+                  }`}
+                >
                   {item.type === "text" && <TextObject text={item.value} />}
                   {item.type === "image" && <ImageObject src={item.value} />}
                 </div>
