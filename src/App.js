@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Draggable from "react-draggable";
+import shortid from "shortid";
 
 import "./App.css";
 
 import ImageUploader from "./components/ImageUploader";
 import ImageList from "./components/ImageList";
+import TextObject from "./components/TextObject";
+import ImageObject from "./components/ImageObject";
 
 async function fetchImages() {
   let images = [];
@@ -18,8 +22,13 @@ async function fetchImages() {
 }
 class App extends Component {
   state = {
-    images: []
+    images: [],
+    objects: {}
   };
+  constructor(props) {
+    super(props);
+    this.canvas = React.createRef();
+  }
   componentDidMount() {
     fetchImages().then(images => {
       this.setState({ images });
@@ -36,8 +45,31 @@ class App extends Component {
       return null;
     }
   };
+  addObjectItem = item => {
+    const key = shortid.generate();
+    const nextObjects = { ...this.state.objects };
+    nextObjects[key] = { ...item, key };
+    this.setState({ objects: nextObjects });
+  };
+  updateObjectPosition = (key, x, y) => {
+    const nextObjects = { ...this.state.objects };
+    nextObjects[key] = {
+      ...nextObjects[key],
+      x,
+      y
+    };
+    this.setState({ objects: nextObjects });
+  };
+  addTextObject = e => {
+    e.preventDefault();
+    this.addObjectItem({ type: "text", value: "This is a text", x: 0, y: 0 });
+  };
+  addImageObject = src => {
+    this.addObjectItem({ type: "image", value: src, x: 0, y: 0 });
+  };
   render() {
-    const { images } = this.state;
+    const { images, objects } = this.state;
+    console.log(objects);
     return (
       <React.Fragment>
         {/*side pane*/}
@@ -48,16 +80,37 @@ class App extends Component {
             <h3>Assets</h3>
             <div className="text">
               <h4>Text</h4>
-              <button id="addText" className="btn btn-default">
+              <button
+                id="addText"
+                className="btn btn-default"
+                onClick={this.addTextObject}
+              >
                 Add Text
               </button>
             </div>
-            <ImageList images={images} />
+            <ImageList images={images} onClick={this.addImageObject} />
           </div>
         </div>
         {/*canvas*/}
         <div className="canvas col-sm-8 col-md-8 col-lg-8">
-          <div className="block">{/*Add images and texts to here*/}</div>
+          <div className="block" ref={this.canvas}>
+            {/*Add images and texts to here*/}
+            {Object.values(objects).map(item => (
+              <Draggable
+                key={item.key}
+                defaultPosition={{ x: item.x, y: item.y }}
+                offsetParent={this.canvas.current}
+                onStop={(e, data) =>
+                  this.updateObjectPosition(item.key, data.x, data.y)
+                }
+              >
+                <div>
+                  {item.type === "text" && <TextObject text={item.value} />}
+                  {item.type === "image" && <ImageObject src={item.value} />}
+                </div>
+              </Draggable>
+            ))}
+          </div>
         </div>
       </React.Fragment>
     );
